@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:eli_market/data/database_helper.dart';
 import 'package:eli_market/models/categoria.dart';
@@ -10,8 +11,19 @@ import 'lista_producto_page.dart';
 
 import '../constantes.dart';
 
-class ListaCategoriaPage extends StatelessWidget {
+class ListaCategoriaPage extends StatefulWidget {
+  @override
+  _ListaCategoriaPageState createState() => _ListaCategoriaPageState();
+}
+
+class _ListaCategoriaPageState extends State<ListaCategoriaPage> {
   final Random random = new Random();
+
+  @override
+  void initState() {
+    super.initState();
+    _obtieneCategoriaFB();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +87,22 @@ class ListaCategoriaPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _obtieneCategoriaFB() async {
+    // hace referencia a mi coleecion de firebase de Categoria.
+    CollectionReference coleccionReferenciaCategoria =
+        FirebaseFirestore.instance.collection("Categoria");
+
+    // Obtiene todas las categorias de Firebase
+    QuerySnapshot consulta = await coleccionReferenciaCategoria.get();
+    // verifica si existe informacion
+    if (consulta.docs.length > 0) {
+      // recorre la lista
+      for (var item in consulta.docs) {
+        print(item.data());
+      }
+    }
   }
 
   Widget _listaMenuCategoria(List<Categoria> listaCategoria) {

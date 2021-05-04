@@ -1,13 +1,19 @@
-import 'package:eli_market/constantes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:eli_market/pantallas/bienvenida_page.dart';
 import 'package:eli_market/pantallas/menu_page.dart';
 import 'package:eli_market/pantallas/creditos_page.dart';
-import 'package:flutter/services.dart';
+import 'package:eli_market/constantes.dart';
 
 void main() {
-  runApp(MyApp());
+  // Todas las dependecias inicializadas
+  WidgetsFlutterBinding.ensureInitialized();
+  // Inicializa Firebase sus dependencias.
+  Firebase.initializeApp().then((value) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

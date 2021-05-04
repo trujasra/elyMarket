@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543882396935",
+    "project_id": "marketapp-c0f01",
+    "storage_bucket": "marketapp-c0f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543882396935:android:7035b254dfb54ac8f1b1a2",
+        "android_client_info": {
+          "package_name": "com.example.eli_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543882396935-hb2nn7imkmdmlm1l8500tem6fk04atqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2jd7TL0hAbmZswFp7zUXbHAtJAHEIIog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543882396935-hb2nn7imkmdmlm1l8500tem6fk04atqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
